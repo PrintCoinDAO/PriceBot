@@ -9,10 +9,10 @@ bot = discord.Client()
 @bot.event
 async def on_ready():
     print('logged in as {0.user}'.format(bot))
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=getPrice()))
+    await bot.change_presence(activity=discord.Game(name=getPrice()))
 
 if __name__ == '__main__':
     bot.run(config.discord)
     while True:
-        time.sleep(60 * 10)
+        time.sleep(60)
         bot.dispatch("on_ready")
