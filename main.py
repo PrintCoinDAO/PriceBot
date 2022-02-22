@@ -9,11 +9,11 @@ bot = discord.Client()
 @bot.event
 async def on_ready():
     print('logged in as {0.user}'.format(bot))
-    while True:
-        price = getPrice()
-        print(price)
-        await bot.change_presence(activity=discord.Game(name=price))
-        time.sleep(60)
+    await bot.change_presence(activity=discord.Game(name=getPrice()))
+
+@bot.event
+async def on_message():
+    await bot.change_presence(activity=discord.Game(name=price))
 
 if __name__ == '__main__':
     try:
