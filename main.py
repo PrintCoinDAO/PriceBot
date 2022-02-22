@@ -16,7 +16,7 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     # Update status every time a message is sent
-    await bot.change_presence(activity=discord.Game(name=price))
+    await bot.change_presence(activity=discord.Game(name=getPrice()))
 
 if __name__ == '__main__':
     try:
